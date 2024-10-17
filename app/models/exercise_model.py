@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, ForeignKey
+from sqlalchemy import Column, String, Integer, ForeignKey, Float
 from sqlalchemy.orm import relationship
 from app.base.base import Base
 from app.models.associations import users_exercises
@@ -12,7 +12,7 @@ class Exercise(Base):
     description = Column(String, nullable=True)
     category_title = Column(String, ForeignKey(
         'category.title'), ondelete='CASCADE')
-    weight = Column(Integer, nullable=False)
+    weight = Column(Float, nullable=False)
     reps = Column(Integer, nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
     users = relationship('User', secondary=users_exercises,
