@@ -9,4 +9,4 @@ class Category(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String, unique=True, nullable=False)
     exercises = relationship(
-        'Exercises', back_populates='category', cascade='all, delete-orphan')
+        'Exercise', back_populates='category', cascade='all, delete-orphan')

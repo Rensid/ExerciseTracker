@@ -2,7 +2,9 @@ from pydantic import BaseModel
 from app.schemas.exercise_schema import ExerciseBase
 
 
-class Category(BaseModel):
-    id: int
+class CategoryBase(BaseModel):
     title: str
-    exercises: list[ExerciseBase]
+
+
+class CategorySchema(CategoryBase):
+    id: int

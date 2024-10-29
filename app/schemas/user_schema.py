@@ -1,5 +1,7 @@
 from pydantic import BaseModel, Field
-from typing import Annotated, Union
+from typing import Annotated, List, Union
+
+from app.schemas.exercise_schema import ExerciseBase, ExerciseSchema
 
 
 class UserBase(BaseModel):
@@ -25,3 +27,21 @@ class TokenData(BaseModel):
 class Token(BaseModel):
     access: str
     refresh: str
+
+
+class UserExercise(BaseModel):
+    exercise: ExerciseBase
+    weight: float | None = None
+    reps: int | None = None
+
+    class Config:
+        from_attributes = True
+
+
+class UserWithExercises(BaseModel):
+    id: int
+    username: str
+    user_exercises: List[UserExercise] = []
+
+    class Config:
+        from_attributes = True

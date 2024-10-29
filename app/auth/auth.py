@@ -1,7 +1,7 @@
 from fastapi import Depends, HTTPException, status
 from app.auth.jwt import get_new_tokens, verify_access_token, verify_password, verify_refresh_token
 from app.crud.user_crud import check_user_by_id, check_user_by_username
-from app.db.base import get_async_session
+from app.base.base import get_async_session
 from app.schemas.user_schema import TokenData
 from settings import oauth2_scheme
 from sqlalchemy.ext.asyncio import AsyncSession
