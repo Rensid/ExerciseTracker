@@ -6,6 +6,7 @@ from config import REDIS_HOST
 REFRESH_TOKEN_EXPIRE_DAYS = 7
 ACCESS_TOKEN_EXPIRE_HOURS = 12
 
+
 redis_client = redis.StrictRedis(
     host=f'{REDIS_HOST}', port=6379, db=0, decode_responses=True)
 
