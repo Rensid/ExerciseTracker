@@ -34,4 +34,5 @@ def log_decorator(func):
 
     return wrapper
 
+
 configure_logging()

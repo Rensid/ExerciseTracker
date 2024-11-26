@@ -7,12 +7,8 @@ from app.base.base import get_async_session
 category_router = APIRouter()
 
 
-@category_router.get('/category/{title}')
-async def get_all_categories():
-    get_category
-
-
 @category_router.post('/category/')
-async def category_creation(category_data: CategoryBase, session: Session = Depends(get_async_session)):
+async def category_creation(category_data: CategoryBase,
+                            session: Session = Depends(get_async_session)) -> CategoryBase:
     category = await create_category(session, category_data)
     return category

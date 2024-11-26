@@ -16,7 +16,7 @@ async def add_exercise(session: AsyncSession, exercise: ExerciseBase):
     is_exercise_exist = await get_exercise_by_title(session, exercise.name)
     if is_exercise_exist:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT,
-                            detail="Category already exists")
+                            detail="Exercise already exists")
     else:
         new_exercise = Exercise(
             name=exercise.name, description=exercise.description, category_title=exercise.category_title)
